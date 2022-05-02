@@ -3,6 +3,7 @@ var arrMain = Array.from(nodeListMain);
 var arrMain2D = [];
 var player = 1;
 var rowName;
+var selected = [];
 
 //converting 1D array to 2D
 arrMain2D.push(arrMain.slice(0, 3));
@@ -35,57 +36,61 @@ for (let i = 0; i < arrMain2D.length; i++) {
 }
 
 function check(row, col, ele) {
-    count++;
-    console.log(count);
-    if (count >= 9) {
-        location.reload(true);
-    }
-    if (player == 1) {
-        //count++;
-        let para = document.querySelector("p");
-        para.innerHTML = "Player 2";
-        para.style = "color: #F30A49"
-        ele.style = "background-color : #04879C";
-        //ele.innerHTML = "0";
-        var now = parseInt(ele.innerHTML);
-
-        arrRow.push(row);
-        arrCol.push(col);
-
-        if (now % 2 == 0) {
-            arrDiag.push(now);
-            dekhoDiag();
-            dekhoRow(row);
-            dekhoCol(col);
+    if (!selected.includes(ele.innerHTML)) {
+        selected.push(ele.innerHTML)
+        count++;
+        console.log(count);
+        if (count >= 9) {
+            location.reload(true);
         }
+        if (player == 1) {
+            //count++;
+            let para = document.querySelector("p");
+            para.innerHTML = "Player 2";
+            para.style = "color: #F30A49"
+            ele.style = "background-color : #04879C";
+            //ele.innerHTML = "0";
+            var now = parseInt(ele.innerHTML);
+
+            arrRow.push(row);
+            arrCol.push(col);
+
+            if (now % 2 == 0) {
+                arrDiag.push(now);
+                dekhoDiag();
+                dekhoRow(row);
+                dekhoCol(col);
+            }
+            else {
+                dekhoRow(row);
+                dekhoCol(col);
+            }
+        }
+
         else {
-            dekhoRow(row);
-            dekhoCol(col);
+            //count++;
+            let para = document.querySelector("p")
+            para.innerHTML = "Player 1";
+            para.style = "color: #04879C"
+            ele.style = "background-color : #F30A49";
+            var now2 = parseInt(ele.innerHTML);
+
+            arrRow2.push(row);
+            arrCol2.push(col);
+
+            if (now2 % 2 == 0) {
+                arrDiag2.push(now2);
+                dekhoDiag2();
+                dekhoRow2(row);
+                dekhoCol2(col);
+            }
+            else {
+                dekhoRow2(row);
+                dekhoCol2(col);
+            }
         }
     }
 
-    else {
-        //count++;
-        let para = document.querySelector("p")
-        para.innerHTML = "Player 1";
-        para.style = "color: #04879C"
-        ele.style = "background-color : #F30A49";
-        var now2 = parseInt(ele.innerHTML);
-
-        arrRow2.push(row);
-        arrCol2.push(col);
-
-        if (now2 % 2 == 0) {
-            arrDiag2.push(now2);
-            dekhoDiag2();
-            dekhoRow2(row);
-            dekhoCol2(col);
-        }
-        else {
-            dekhoRow2(row);
-            dekhoCol2(col);
-        }
-    }
 }
 
 
@@ -168,15 +173,15 @@ function dekhoDiag2() {
     else player = 1
 }
 
-function winner(player){
-    setTimeout(doThis ,0)
-    function doThis(){
-        document.querySelector("p").innerHTML = player+" wins";
+function winner(player) {
+    setTimeout(doThis, 0)
+    function doThis() {
+        document.querySelector("p").innerHTML = player + " wins";
         document.querySelector("p").style = "color : #EAEA7F";
         document.querySelector("body").style = "background-color : #142F43";
     }
-    setTimeout(function(){
-        location.reload(true); },2000)
+    setTimeout(function () {
+        location.reload(true);
+    }, 2000)
     //location.reload(true)
 }
-

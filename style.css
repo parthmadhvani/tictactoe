@@ -2,16 +2,16 @@ body{
     background-color: #FEE2C5;
 }
 p{
-    padding-bottom: 50px;
+    /* padding-bottom: px; */
     /* margin-bottom: 100px; */
     color: #04879C;
-    font-size: 80px;
+    font-size: 4vw;
     width: fit-content;
     margin: auto;
     font-family: 'Press Start 2P', cursive;
 }
 .main{
-    padding: 80px;
+    padding: 2vw;
     color: white;
     width: fit-content;
     margin: auto;
@@ -19,11 +19,17 @@ p{
 
 .box{
     background-color: #C4DDFF;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 0px;
-    width: 200px;
-    height: 200px;
-    border: solid 5px;
-    margin: 5px;
+    width: 10vw;
+    height: 10vw;
+    border: solid 0.3vw;
+    /* margin: 0.2vw; */
     border-color: black;
+    /* padding: 0 !important; */
+}
+
+.col{
+    margin: 0.2vw;
+    padding: 0;
 }
