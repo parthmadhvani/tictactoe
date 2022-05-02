@@ -33,3 +33,21 @@ p{
     margin: 0.2vw;
     padding: 0;
 }
+
+@media (max-width: 600px){
+    p{
+        color: #04879C;
+        font-size: 6vw;
+        width: fit-content;
+        margin: auto;
+        font-family: 'Press Start 2P', cursive;
+    }
+    .box{
+        background-color: #C4DDFF;
+        font-size: 0px;
+        width: 20vw;
+        height: 20vw;
+        border: solid 0.3vw;
+        border-color: black;
+    }
+}
