@@ -1,0 +1,18 @@
+body{
+    background-color: rgb(58, 58, 58);
+}
+.main{
+    color: white;
+    font-size: 0;
+    width: fit-content;
+    margin: auto;
+}
+
+.box{
+    display: inline-block;
+    width: 200px;
+    height: 200px;
+    border: solid 5px;
+    margin: 5px;
+    border-color: white     ;
+}
