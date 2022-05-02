@@ -1,18 +1,29 @@
 body{
-    background-color: rgb(58, 58, 58);
+    background-color: #FEE2C5;
+}
+p{
+    padding-bottom: 50px;
+    /* margin-bottom: 100px; */
+    color: #04879C;
+    font-size: 80px;
+    width: fit-content;
+    margin: auto;
+    font-family: 'Press Start 2P', cursive;
 }
 .main{
+    padding: 80px;
     color: white;
-    font-size: 0;
     width: fit-content;
     margin: auto;
 }
 
 .box{
+    background-color: #C4DDFF;
     display: inline-block;
+    font-size: 0px;
     width: 200px;
     height: 200px;
     border: solid 5px;
     margin: 5px;
-    border-color: white     ;
+    border-color: black;
 }
