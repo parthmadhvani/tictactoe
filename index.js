@@ -4,6 +4,7 @@ var arrMain2D = [];
 var player = 1;
 var rowName;
 var selected = [];
+var win = false;
 
 //converting 1D array to 2D
 arrMain2D.push(arrMain.slice(0, 3));
@@ -27,7 +28,6 @@ var arrDiag2 = [];
 //accepted diagonal array for check
 const accepted1 = [0, 4, 8]
 const accepted2 = [2, 4, 6]
-// document.querySelector("p").innerHTML = "Player 1";
 
 for (let i = 0; i < arrMain2D.length; i++) {
     for (let j = 0; j < arrMain2D.length; j++) {
@@ -36,20 +36,21 @@ for (let i = 0; i < arrMain2D.length; i++) {
 }
 
 function check(row, col, ele) {
+
+    let span = document.querySelectorAll("span");
+    let selected_span = span[parseInt(ele.innerHTML)];
+    // console.log(selected_span);
     if (!selected.includes(ele.innerHTML)) {
         selected.push(ele.innerHTML)
         count++;
-        console.log(count);
-        if (count >= 9) {
-            location.reload(true);
-        }
-        if (player == 1) {
-            //count++;
+        
+        if (player == 1) { 
+
             let para = document.querySelector("p");
             para.innerHTML = "Player 2";
             para.style = "color: #F30A49"
             ele.style = "background-color : #04879C";
-            //ele.innerHTML = "0";
+            selected_span.innerHTML = "O"
             var now = parseInt(ele.innerHTML);
 
             arrRow.push(row);
@@ -73,6 +74,7 @@ function check(row, col, ele) {
             para.innerHTML = "Player 1";
             para.style = "color: #04879C"
             ele.style = "background-color : #F30A49";
+            selected_span.innerHTML = "X"
             var now2 = parseInt(ele.innerHTML);
 
             arrRow2.push(row);
@@ -88,6 +90,10 @@ function check(row, col, ele) {
                 dekhoRow2(row);
                 dekhoCol2(col);
             }
+        }
+
+        if (count >= 9 && win==false) {
+            location.reload(true);
         }
     }
 
@@ -126,7 +132,7 @@ function dekhoDiag() {
 
     let res1 = accepted1.every(e => arrDiag.includes(e));
     let res2 = accepted2.every(e => arrDiag.includes(e))
-    console.log(arrDiag);
+    // console.log(arrDiag);
     if (res1 == true || res2 == true) {
         winner("Player 1")
     }
@@ -174,6 +180,7 @@ function dekhoDiag2() {
 }
 
 function winner(player) {
+    win = true;
     setTimeout(doThis, 0)
     function doThis() {
         document.querySelector("p").innerHTML = player + " wins";
