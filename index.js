@@ -38,12 +38,12 @@ for (let i = 0; i < arrMain2D.length; i++) {
 function check(row, col, ele) {
 
     let span = document.querySelectorAll("span");
-    let selected_span = span[parseInt(ele.innerHTML)];
+    let selected_span = span[parseInt(ele.innerHTML.slice(0,1))];
     // console.log(selected_span);
-    if (!selected.includes(ele.innerHTML)) {
-        selected.push(ele.innerHTML)
+    if (!selected.includes(parseInt(ele.innerHTML.slice(0,1)))) {
+        selected.push(parseInt(ele.innerHTML.slice(0,1)))
         count++;
-        
+        console.log(selected);
         if (player == 1) { 
 
             let para = document.querySelector("p");
